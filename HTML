@@ -3,3 +3,8 @@
   问题解决：经查，问题出于调用百度地图的版本的原因，百度地图JavaScript API v2.0在移动端有兼容性的问题；在移动端推荐使用百度地图的极速版
     http://developer.baidu.com/map/jsmobile.htm。
     而在PC端仍然推荐使用JavaScript API v2.0版本：http://lbsyun.baidu.com/index.php?title=jspopular
+
+2、关于label+input[checkbox]([radio])的点击事件的坑
+  问题描述：在为选项添加点击事件的时候发现，如果将事件绑定在label身上，则在点击时总会触发两次点击事件。
+  问题剖析：在询问度娘后发现，大致产生的原因是这样子的：点击label后先触发一次绑定的点击事件，而后会再次触发input的点击事件（在此处，事件的冒泡中会再次触发label的点击事件），最终导致触发两次label的点击事件。
+  问题解决：可以将点击事件直接绑定在input上，万事OK！
